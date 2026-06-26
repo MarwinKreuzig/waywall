@@ -546,6 +546,9 @@ draw_frame(struct scene *scene) {
     if (positive_depth) {
         wl_list_for_each (object, positive_depth, link) {
             object_render(object);
+            if (object->link.next == &scene->objects.sorted) {
+                break;
+            }
         }
     }
 
